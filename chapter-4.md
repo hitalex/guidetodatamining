@@ -10,7 +10,7 @@
 在之前的章节中，我们讨论了如何使用协同过滤（亦称社会过滤）的方法来给出推荐结果。在协同过滤中，我们利用社区中人们的力量来帮助我们做推荐。比如你买了专辑[Wolfgang Amadeus Phoenix](http://en.wikipedia.org/wiki/Wolfgang_Amadeus_Phoenix)。我们发现，很多买了这张专辑的顾客也买了Vampire Weekend的Contra专辑。所以，我们就将Vampire Weekend的这张专辑推荐给你。我看了美剧*[神秘博士](http://movie.douban.com/subject/1763834/)*，之后[Netflix](http://netflix.com/)就给我推荐了*[量子跳跃](http://movie.douban.com/subject/2073766/)*，因为很多看了*神秘博士*的人也看了*量子跳跃*。在前几章中，我们讨论了一些应用协同过滤可能会遇到的困难，包括数据稀疏性以及可扩展性问题。另外一个问题就是，基于协同过滤的推荐系统倾向于推荐那些已经很流行的物品--即对于流行度有偏好。举一个比较极端的例子，考虑一个新乐队的首张专辑。因为这个乐队和这张专辑从来没有被任何人评分（或者没有任何人购买它，因为他们是全新的），它就永远不会被推荐。
 
 > 对于那些流行的商品来说，这些推荐系统造成了一种“富人更富”效应，对于那些不流行的商品也是如此。
->> Daniel Fleder and Kartik Hosanagar, 2009年，“Blockbusters Culture's Next Rise or Fall: The Impact of Recommender Systems on Sales Diversity”，Management Science, 第55卷。
+> -- Daniel Fleder and Kartik Hosanagar, 2009年，“Blockbusters Culture's Next Rise or Fall: The Impact of Recommender Systems on Sales Diversity”，Management Science, 第55卷。
 
 在本章中，我们来看一种不同的方法。考虑音乐流媒体服务网站，[Pandora](http://www.pandora.com/)。在Pandora上，就如同你们所知道的那样，你可以建立不同的音乐电台。你在为每个电台设定一个*种子*音乐家之后，Pandora会为你播放与这个音乐家风格相近的音乐。比如，我可以创建一个以Phoenix乐队为种子的电台。之后，Pandora就会播放与Phoenix乐队风格相近的歌曲--比如，它会播放El Ten Eleven乐队的歌曲。Pandora并不是根据协同过滤的思想来做这件事--因为听过Phoenix的人也听过El Ten Eleven。它之所以会播放El Ten Eleven的歌曲是因为El Ten Eleven和Phoenix在音乐风格上很接近。实际上，我们可以问问Pandora为什么播放某个类型的歌曲：
 
