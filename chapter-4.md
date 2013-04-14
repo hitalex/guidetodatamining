@@ -65,11 +65,11 @@ Pandora的推荐系统基于所谓的*音乐基因组计划（The Music Genome P
 
 比如说Tex就是非常喜欢*You are beautiful*，我们希望为他推荐一首歌。
 
-![toughman-you-are-beautiful](img/chapter-4/chapter-4-6.png, "You'are Beautiful听起来那么忧伤，那么美妙！爱死了！")
+![toughman-you-are-beautiful](img/chapter-4/chapter-4-6.png "You'are Beautiful听起来那么忧伤，那么美妙！爱死了！")
 
 现在让我往我们的数据集中添加一些歌曲。歌曲1是首Jazz，并且有些忧伤（melancholy）；歌曲2是首Soul，有些愤怒（angry）；歌曲3是首Jazz，而且有些愤怒（angry）。你会将哪首歌推荐给Tex呢？
 
-![tex-song-axis](img/chapter-4/chapter-4-7.png, "歌曲1看起来最合适！")
+![tex-song-axis](img/chapter-4/chapter-4-7.png "歌曲1看起来最合适！")
 
 我希望你已经看出来我们的方案存在着致命的缺陷。让我们再来看看变量可能取到的数值。
 
@@ -77,11 +77,11 @@ Pandora的推荐系统基于所谓的*音乐基因组计划（The Music Genome P
 
 如果我们在这个方案里尝试使用任何的距离计算方法，我们其实承认了：Jazz与Rock距离要比它与Soul的距离近（Jazz与Rock的距离是1，而Jazz与Soul的距离为2）。或者说，melancholy与joyful的距离要比它与angry的距离更近。即便我们重新分配数值，我们仍然无法避免这个问题。
 
-![mood-genre-reordering](img/chapter-4/chapter-4-8.png, "重新排序后的数值分配")
+![mood-genre-reordering](img/chapter-4/chapter-4-8.png "重新排序后的数值分配")
 
 重新排序并不能这个问题。无论我们如何重新分配数值，问题依然会存在。这说明，我们选择的特征很差。我们希望特征的取值能够在一个有意义的数值范围中。我们可以很容易的将上面的“genre”特征分成5个特征，分别是“country”、“jazz”等等。
 
-![genre-new-features](img/chapter-4/chapter-4-9.png, "将genre分成5个特征")
+![genre-new-features](img/chapter-4/chapter-4-9.png "将genre分成5个特征")
 
 这些特征的取值在1～5之间，例如“Country”表示这首歌具有多少“Country”的特点--取值为“1”表示这首歌一点都不像“Country”，而取值为“5”表示这首歌绝对是一首“Country”。现在这里的取值范围确实具有了含义。如果我们现在需要找到一首歌，它的“Country”特征的取值为5，还有另外两首歌，其“Country”的特征取值分别为4和1，那么，“Country”取值为4的歌曲就更符合我们的要求。
 
